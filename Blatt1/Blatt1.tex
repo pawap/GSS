@@ -1,0 +1,218 @@
+\documentclass[ngerman]{fbi-aufgabenblatt}
+
+% Folgende Angaben bitte anpassen
+
+\renewcommand{\Vorlesung}{GSS}
+\renewcommand{\Semester}{SoSe 2018}
+
+\renewcommand{\Aufgabenblatt}{1}
+\renewcommand{\Teilnehmer}{Knudsen, Rasch, Runge, Titov}
+
+\usepackage{url}
+
+\begin{document}
+
+%
+% Aufg. 1
+%
+\aufgabe{Allgemeine Aussagen zur IT-Sicherheit}
+
+% 1.1
+\textbf{1.1 Verteilte Systeme (optional)}
+
+\dq Ein Verteiltes System (VS) ist eine durch ein Kommunikationssystem lose gekoppelte Menge von Knoten, wobei
+
+\begin{itemize} 
+\item die Knoten kooperieren, um Systemfunktionen auszuführen (verteilte systemweite Kontrolle)
+\item keine zwei Prozesse dieselbe Sicht des Systemzustands besitzen und insbesondere kein zentraler Prozess existiert, 
+     der andere Prozesse mit einer konsistenten, identischen Sicht des globalen Systemzustands versorgen kann.\dq
+\end{itemize}
+
+(Quelle: Prof. Dr. rer. nat. Bernd E. Wolfinger - Datenkommunikation und Rechnernetze (DKR) Skript, S. 15)
+
+\dq Die 3 wichtigsten Aspekte eines verteilten Systems sind:
+
+\begin{itemize} 
+\item lose gekoppelte Knoten (kein gemeinsamer Speicher; Kommunikation nur durch Nachrichten)
+\item verteilte systemweite Kontrolle
+\item kein globaler Systemzustand\dq
+\end{itemize}
+
+(Quelle: Prof. Dr. rer. nat. Bernd E. Wolfinger - Datenkommunikation und Rechnernetze (DKR) Foliensatz 1, Folie 44)
+
+3 Beispiele für verteilte Systeme:
+\begin{itemize} 
+\item Terminalnetze (bestehend aus Terminals und Terminalkonzentratoren)
+\item Mobile Systeme (bestehend z.B. aus Endgerät und Peripherie-Komponenten wie Kamera, Drucker, Wifi-Festplatte,...)
+\item ein beliebiger Abschnitt des Internets, der aus mehr als einem Rechner besteht
+\end{itemize}
+
+% 1.2
+\textbf{1.2 Sicherheit verteilter Systeme (optional)}
+
+Vorteile: 
+\begin{itemize}
+\item Wenn ein Verteiltes System mit Verfügbarkeitsverbund vorliegt, kann nach einem erfolgreichem Angriff auf einen Knoten die Funktionalität des Gesamtsystems weiterhin gewährleistet werden. 
+\item Wenn ein Verteiltes System mit Datenverbund vorliegt, kann nach einem erfolgreichem Angriff auf einen Knoten mit einhergehendem Datenverlust die Verfügbarkeit der Daten durch einen  anderen Knoten weiterhin gewährleistet werden.
+\item ...
+\end{itemize}
+
+Nachteile: 
+\begin{itemize}
+\item Durch Infektion eines Rechners können die anderen Rechner des verteilten Systems leichter infiziert werden, u.a. da zwischen ihnen regelmäßig Nachrichten ausgetauscht werden
+\item Umfang der Sicherheitsvorkehrungen und Einfachheit des Zugriffs stehen in Konkurrenz zu einander
+\item ...
+\end{itemize}
+
+% 1.3
+\textbf{1.3 Ursachen (Pflicht, 6 Punkte)}
+
+Vermutungen:
+
+\begin{itemize} 
+\item Kosten
+\item Unwissen
+\item Fahrlässigkeit
+\end{itemize}
+
+Tatsächlich eher: 
+
+\begin{itemize} 
+\item Defizite in der Zusammenarbeit von IT und Sicherheitsverantwortlichen
+\item Mangelnde oder mangelhafte Sicherheitskonzepte für neue Technologien (z.B. Mobile Endgeräte, Cloud, ...)
+\item Mangel an Collaboration und Ressourcen
+\end{itemize}
+
+\begin{itemize} 
+\item immer mehr verwundbare Endpunkte, 
+\item unwirksame Strategien in der technologischen Implementierung und organisatorischen Priorisierung von IT-Sicherheit 
+\item sowie die Unfähigkeit, Mitarbeitern Best Practices nahezubringen.
+\end{itemize}
+
+(Quelle: \url{https://www.ponemon.org/local/upload/file/Third_Annual_Study_Patient_Privacy_FINAL.pdf})
+
+Referenzen: 
+Studien, z.B. von <kes> – Die Zeitschrift für Informations-Sicherheit, die Microsoft-Sicherheitsstudien, 
+oder auch die oben verlinkte Studie vom Ponemon Institute.
+
+Komplikationen: 
+\begin{itemize}
+\item Unternehmen werden unter Umständen nicht dran interessiert sein,
+Probleme ihres Umgangs mit IT-Sicherheit zu offenbaren, zumal der Punkt \dq Unwissen \dq
+die kritische Auseinandersetzung damit erschwert bzw. evtl. sogar unmöglich macht.
+\item Studien werden evtl. durch die Auftraggeber oder die Durchführenden selbst insofern kompromittiert, 
+als dass die dargestellten Ergebnisse nicht (ganz) der Realität entsprechen.
+\item Befragte haben schlichtweg keine Fachkentnisse und bieten somit ein verzerrtes Bild der Realität.
+\end{itemize}
+
+% 1.4
+\textbf{1.4 Digitale Signaturen (optional)}
+
+Im Gegensatz zu einer Signatur im Sinne einer physischen Unterschrift mit Stift auf Papier handelt es sich
+\dq bei der digitalen Signatur (DSig) [...] um einen asymmetrischen elektronischen Schlüssel, 
+der die Identität des Benutzers sicherstellt. Der Schlüssel wird mit dem privaten Schlüssel des Absenders verschlüsselt 
+und vom Empfänger mit dem öffentlichen Schlüssel gelesen.\dq
+
+(Quelle: \url{https://www.itwissen.info/Digitale-Signatur-digital-signature-DSig.html})
+
+
+\newpage
+%
+% Aufg. 2
+%
+\aufgabe{Schutzziele}
+
+% 2.1
+\textbf{2.1 Abgrenzung I (Pflicht, 14 Punkte)}
+
+a) Anonymität, Pseudonymität und Unbeobachtbarkeit
+
+Während die Identität eins Akteur bei gewahrter \emph{Anonymität} lediglich nicht preisgegeben wird,\\
+wird bei \emph{Pseudonymität} eine falsche Identität vorgeschoben,\\
+und bei \emph{Unbeobachtbarkeit} weder seine wahre, noch eine vorgetäuschte Identität ersichtlich.
+
+b) Vertraulichkeit und Verdecktheit
+
+Während bei \emph{Vertraulichkeit} die Daten eines Akteurs vor Blicken Dritter geschützt sind,
+
+ist bei \emph{Verdecktheit} das Wissen über das Stattfinden einer Übertragung an sich vor Dritten geschützt.
+
+c) Integrität und Zurechenbarkeit
+
+Bei \emph{Integrität} wird versucht, eine Veränderung der Daten zu verhindern, 
+
+während bei \emph{Zurechenbarkeit} die Veränderung der Daten einem Akteur nachgewiesen werden kann.
+
+% 2.2
+\textbf{2.2 Techniken (optional)}
+
+
+\newpage
+\aufgabe{Angreifermodell}
+% Aufg. 3
+
+% 3.1
+\textbf{3.1 Angreifermodell (optional)}
+
+Das Angreifermodell definiert die maximal berücksichtigte Stärke eines
+Angreifers, gegen den ein Schutzmechanismus gerade noch wirkt.
+
+Es beschreibt:
+\begin{itemize}
+\item Rollen des Angreifers (Außenstehender, Benutzer, Betreiber,
+Wartungsdienst, Produzent, Entwerfer …), auch kombiniert
+\item Verbreitung des Angreifers (Stellen im System, an denen der
+Angreifer Informationen gewinnen oder Systemzustände verändern kann)\\
+\item Verhalten des Angreifers
+	\begin{itemize}
+   \item passiv / aktiv, beobachtend / verändernd
+   \end{itemize}
+\item Rechenkapazität des Angreifers
+	\begin{itemize}
+   \item unbeschränkt: informationstheoretisch
+   \item beschränkt: komplexitätstheoretisch
+   \end{itemize}
+\end{itemize}
+
+(Quelle: Prof. Dr. Hannes Federrath - Sicherheit in verteilten Systemen (SVS)-Foliensatz 1 - \dq Einführung in die IT-Sicherheit\dq , Folie 26)
+
+% 3.2
+\textbf{3.2 Praxisbeispiel (Pflicht, 10 Punkte)}
+
+%
+% Aufg. 4
+%
+\newpage
+\aufgabe{Angriffsformen}
+
+% 4.1
+\textbf{4.1 Essenslieferungen (Pflicht, 7 Punkte)}
+
+% 4.2
+\textbf{4.2 Liste bekannter WLAN-AP SSIDs (optional)}
+
+
+\newpage
+\aufgabe{Passwortsicherheit}
+% Aufg. 5
+
+% 5.1
+\textbf{5.1. Eigenschaften kryptographischer Hashfunktionen (optional)}
+
+% 5.2
+\textbf{5.2. Einfaches Hash-Verfahren (optional)}
+
+% 5.3
+\textbf{5.3. Brute-Force-Angriff (Pflicht, 6 Punkte)}
+
+% 5.4
+\textbf{5.4. Time-Memory-Trade-Off (optional)}
+
+% 5.5
+\textbf{5.5. Salting (optional)}
+
+% 5.6
+\textbf{5.6. Dictionary-Attack (Pflicht, 10 Punkte)}
+
+
+\end{document}
