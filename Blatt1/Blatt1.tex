@@ -9,6 +9,7 @@
 \renewcommand{\Teilnehmer}{Knudsen, Rasch, Runge, Titov}
 
 \usepackage{url}
+\usepackage{pdfpages}
 
 \begin{document}
 
@@ -217,51 +218,54 @@ Rechenkapazitäten: beschränkt.
 \aufgabe{Passwortsicherheit}
 % Aufg. 5
 %Ich (Jonas) arbeite ab morgen (12.4.) an Aufgabe 5, speziell 5.6 
+\includepdf[]{ÜA51} %Ich includepdf ok? oder soll ich es in Latex schreiben?
+%Im PDF sind meine Antworten zu 5.1 bis 5.6.
 
 % 5.1
-\textbf{5.1. Eigenschaften kryptographischer Hashfunktionen (optional)}
+%\textbf{5.1. Eigenschaften kryptographischer Hashfunktionen (optional)}
 
 % 5.2
-\textbf{5.2. Einfaches Hash-Verfahren (optional)}
+%\textbf{5.2. Einfaches Hash-Verfahren (optional)}
 
 % 5.3
-\textbf{5.3. Brute-Force-Angriff (Pflicht, 6 Punkte)}
+%\textbf{5.3. Brute-Force-Angriff (Pflicht, 6 Punkte)}
 
 % 5.4
-\textbf{5.4. Time-Memory-Trade-Off (optional)}
+%\textbf{5.4. Time-Memory-Trade-Off (optional)}
 
 % 5.5
-\textbf{5.5. Salting (optional)}
+%\textbf{5.5. Salting (optional)}
 
 % 5.6
-\textbf{5.6. Dictionary-Attack (Pflicht, 10 Punkte)}
-\begin{verbatim}
-#!/bin/bash
-## user;salt:hash
-#berta;xohth4dew5p8:14146888a9cb5e924987691876fb4252
-#PW="1234"
-salt="xohth4dew5p8"
-#hash=$(printf '%s' $PW$salt | md5sum | cut -d ' ' -f 1)
-hash=14146888a9cb5e924987691876fb4252
-#numofcpu=4
-numofcpu=$(cat /proc/cpuinfo | grep processor | wc -l)
 
-for ((z=1;z<=$numofcpu;z++)); do
- for word in $(split --number=l/$z/$numofcpu ./deutsch.txt); do 
-  length=$(echo $word | wc -m)
-    if [ $length -lt 8 ] ; then
-      word=$(echo $word | sed 's/\([A-Z]\)/\L\1/g')
-      #echo $PW$word | md5sum
-      #echo $word
-      var=$(printf '%s' $salt$word | md5sum | cut -d ' ' -f 1)
-      #echo $var
-      if [ $var = $hash ] ; then
-        echo -e "Passwort gefunden: $word"
-      fi
-    fi
-  done & echo $z
-done
-Passwort: sterne
-\end{verbatim}
+%\textbf{5.6. Dictionary-Attack (Pflicht, 10 Punkte)}
+%\begin{verbatim}
+%#!/bin/bash
+%## user;salt:hash
+%#berta;xohth4dew5p8:14146888a9cb5e924987691876fb4252
+%#PW="1234"
+%salt="xohth4dew5p8"
+%#hash=$(printf '%s' $PW$salt | md5sum | cut -d ' ' -f 1)
+%hash=14146888a9cb5e924987691876fb4252
+%#numofcpu=4
+%numofcpu=$(cat /proc/cpuinfo | grep processor | wc -l)
+%
+%for ((z=1;z<=$numofcpu;z++)); do
+% for word in $(split --number=l/$z/$numofcpu ./deutsch.txt); do 
+%  length=$(echo $word | wc -m)
+%    if [ $length -lt 8 ] ; then
+%      word=$(echo $word | sed 's/\([A-Z]\)/\L\1/g')
+%      #echo $PW$word | md5sum
+%      #echo $word
+%      var=$(printf '%s' $salt$word | md5sum | cut -d ' ' -f 1)
+%      #echo $var
+%      if [ $var = $hash ] ; then
+%        echo -e "Passwort gefunden: $word"
+%      fi
+%    fi
+%  done & echo $z
+%done
+%Passwort: sterne
+%\end{verbatim}
 
 \end{document}
