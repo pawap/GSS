@@ -127,9 +127,9 @@ und vom Empfänger mit dem öffentlichen Schlüssel gelesen.\dq
 
 a) Anonymität, Pseudonymität und Unbeobachtbarkeit
 
-Während die Identität eins Akteur bei gewahrter \emph{Anonymität} lediglich nicht preisgegeben wird,\\
-wird bei \emph{Pseudonymität} eine falsche Identität vorgeschoben,\\
-und bei \emph{Unbeobachtbarkeit} weder seine wahre, noch eine vorgetäuschte Identität ersichtlich.
+Während die Identität eines Akteur bei gewahrter \emph{Anonymität} lediglich nicht preisgegeben wird,\\
+wird bei \emph{Pseudonymität} eine falsche Identität vorgeschoben, wobei die wahre Identität bei Eintritt besonderer Rahmenbedingungen ermittelt werden kann,\\
+und bei \emph{Unbeobachtbarkeit} ist weder seine wahre, noch eine vorgetäuschte Identität ersichtlich. Seine Handlungen können nicht beobachtet werden oder es kann nicht festgestellt werden, dass die Handlungen einem einzelnen Akteur zuzuordnen sind.  
 
 b) Vertraulichkeit und Verdecktheit
 
@@ -179,6 +179,27 @@ Angreifer Informationen gewinnen oder Systemzustände verändern kann)\\
 % 3.2
 \textbf{3.2 Praxisbeispiel (Pflicht, 10 Punkte)}
 
+Angreifermodell für das Abheben von
+Bargeld an Geldautomaten mit einer EC-Karte
+
+%% PAW %%
+%% Frage: Sollen alle möglichen Szenarien in einem Modell abgedeckt werden?
+
+Angreifermodell 1
+
+Rolle: Außenstehender, weiterer Benutzer (aber auch andere Insider) \\
+Verbreitung: Sichtkontakt zum Automaten (PIN-Eingabe)/ ggf. über Kamera/Spiegel \\
+	oder Anbringen einer Vorrichtung zur Ermittlung der PIN 
+Verhalten: passiv, beobachtend / aktiv, beobachtend (Sicherheitsdienst)  / aktiv, verändernd (Spiegel, Vorrichtung, unerlaubte Kameranutzung)\\
+Rechenkapazitäten: unbeschränkt. \\
+
+Angreifermodell 2
+
+Rolle: Außenstehender, weiterer Benutzer (aber auch andere Insider) \\
+Verbreitung: Besitz einer betrügerisch erworbenen gültigen EC-Karte oder Erlangen der EC-Kartendaten durch unerlaubte Handlungen \\
+Verhalten: aktiv, verändernd \\
+Rechenkapazitäten: beschränkt.   
+
 %
 % Aufg. 4
 %
@@ -214,6 +235,7 @@ Angreifer Informationen gewinnen oder Systemzustände verändern kann)\\
 
 % 5.6
 \textbf{5.6. Dictionary-Attack (Pflicht, 10 Punkte)}
+\begin{verbatim}
 #!/bin/bash
 ## user;salt:hash
 #berta;xohth4dew5p8:14146888a9cb5e924987691876fb4252
@@ -240,6 +262,6 @@ for ((z=1;z<=$numofcpu;z++)); do
   done & echo $z
 done
 Passwort: sterne
-
+\end{verbatim}
 
 \end{document}
