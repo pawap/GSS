@@ -54,15 +54,17 @@
 
 Vorteile: 
 \begin{itemize}
-\item Wenn ein Verteiltes System mit Verfügbarkeitsverbund vorliegt, kann nach einem erfolgreichem Angriff auf einen Knoten die Funktionalität des Gesamtsystems weiterhin gewährleistet werden. 
-\item Wenn ein Verteiltes System mit Datenverbund vorliegt, kann nach einem erfolgreichem Angriff auf einen Knoten mit einhergehendem Datenverlust die Verfügbarkeit der Daten durch einen  anderen Knoten weiterhin gewährleistet werden.
+\item Wenn ein Verteiltes System mit Verfügbarkeitsverbund vorliegt, kann nach einem erfolgreichen Angriff auf einen Knoten die Funktionalität des Gesamtsystems weiterhin gewährleistet werden. 
+\item Wenn ein Verteiltes System mit Datenverbund vorliegt, kann nach einem erfolgreichen Angriff auf einen Knoten mit einhergehendem Datenverlust die Verfügbarkeit der Daten durch einen  anderen Knoten weiterhin gewährleistet werden.
 \item ...
 \end{itemize}
 
 Nachteile: 
 \begin{itemize}
-\item Durch Infektion eines Rechners können die anderen Rechner des verteilten Systems leichter infiziert werden, u.a. da zwischen ihnen regelmäßig Nachrichten ausgetauscht werden
+\item Durch Infektion eines Rechners können die anderen Rechner des verteilten Systems leichter infiziert werden, u.a. da zwischen ihnen regelmäßig Nachrichten ausgetauscht werden.
+\item Die kommunikationskanäle der Teilsysteme stellen einen Angriffspunkt dar.
 \item Umfang der Sicherheitsvorkehrungen und Einfachheit des Zugriffs stehen in Konkurrenz zu einander
+\item Teilausfälle sind oft nur schwer feststellbar.
 \item ...
 \end{itemize}
 
@@ -126,7 +128,7 @@ und vom Empfänger mit dem öffentlichen Schlüssel gelesen.\dq
 
 a) Anonymität, Pseudonymität und Unbeobachtbarkeit
 
-Während die Identität eines Akteur bei gewahrter \emph{Anonymität} lediglich nicht preisgegeben wird,\\
+Während die Identität eines Akteurs bei gewahrter \emph{Anonymität} lediglich nicht preisgegeben wird,\\
 wird bei \emph{Pseudonymität} eine falsche Identität vorgeschoben, wobei die wahre Identität bei Eintritt besonderer Rahmenbedingungen ermittelt werden kann,\\
 und bei \emph{Unbeobachtbarkeit} ist weder seine wahre, noch eine vorgetäuschte Identität ersichtlich. Seine Handlungen können nicht beobachtet werden oder es kann nicht festgestellt werden, dass die Handlungen einem einzelnen Akteur zuzuordnen sind.  
 
@@ -208,9 +210,9 @@ Rechenkapazitäten: beschränkt.
 % 4.1
 \textbf{4.1 Essenslieferungen (Pflicht, 7 Punkte)}
 
-a) passive Angriffe: Bereits das Schließen von erhöhten Essenslieferungen auf einen bevorstehenden Kampfeinsatz gefährdet die Vertraulichkeit dieser Information. Durchführen lässt sich der Angriff durch das Beobachten der Nahrungslieferanten oder des Verteidigungsministeriums (Traffic Analyse). Eine Gegenmaßnahme wäre eine Kantine im Verteidigungsministerium, die vergleichbares Essen liefert. 
+a) passive Angriffe: Bereits das Schließen von erhöhten Essenslieferungen auf einen bevorstehenden Kampfeinsatz gefährdet die Vertraulichkeit dieser Information. Durchführen lässt sich der Angriff durch das Beobachten der Nahrungslieferanten oder des Verteidigungsministeriums (Traffic Analyse). Auch eine Wahrscheinlichkleitsverteilung über die Art es bevorstehenden Einsatzes ließe sich unter Umständen aus Mustern, die sich wiederum aus Vorlieben einzelner Konferenzteilnehmer ergäben, auslesen. Eine Gegenmaßnahme wäre eine Kantine im Verteidigungsministerium, die vergleichbares Essen liefert. 
 
-b1) aktive Angriffe: Durch das Vergiften der Lebensmittellieferungen kann Einfluss auf die Verfügbarkeit der Soldaten genommen werden. Der Angriff kann auch Einfluss auf die Integrität der Planung haben, da unter Drogen stehende Soldaten die Planung manipulieren könnten. Alle relevanten Restaurant oder Lieferdienstfahrer müssten unter Kontrolle gebracht werden. Eine Gegenmaßnahme wäre eine Kantine im Verteidigungsministerium, die vergleichbares Essen liefert.
+b1) aktive Angriffe: Durch das Vergiften der Lebensmittellieferungen kann Einfluss auf die Verfügbarkeit der Ministeriumsmitarbeiter genommen werden. Der Angriff kann auch Einfluss auf die Integrität der Planung haben, da unter Drogen stehende Ministeriumsmitarbeiter die Planung manipulieren könnten. Alle relevanten Restaurant- oder Lieferdienstfahrer müssten unter Kontrolle gebracht werden. Eine Gegenmaßnahme wäre eine Kantine im Verteidigungsministerium, die vergleichbares Essen liefert.
  
 b2) Wenn alle relevanten Restaurant oder Lieferdienstfahrer unter Kontrolle gebracht wurden, sind auch weitere Angriffe auf die Verfügbarkeit per Denail of Service oder Flooding möglich.
 
@@ -283,7 +285,7 @@ Was versteht man in diesem Zusammenhang unter dem Begriff Time-Memory-Trade-Off 
 Was ist die grundsätzliche Idee von Rainbow Tables bzw. den Vorgänger-Verfahren? Was haben Rainbow Tables mit dem Regenbogen zu tun?
 
 \textbf{Antwort:}
-Die grundlegende Idee ist bei Passworthashes ohne Salt eine Datenstruktur möglicher Passwörter und Hashes vorher zu erstellen, um beim Entschlüsseln von den Hashes auf die Passwörter schließen zu können. Die schnellste Version wäre eine Tabelle direkt im Arbeitsspeicher, diese Umsetzung benötigt jedoch viel von diesem. Andere Umsetzungen wären langsamer, jedoch weniger Arbeitsspeicher-hungrig (Time-Memory-Trade-Off). Ein solche Datenstruktur sind Rainbow-Tables.
+Die grundlegende Idee ist bei Passworthashes ohne Salt eine Datenstruktur möglicher Passwörter und Hashes vorher zu erstellen, um beim Entschlüsseln von den Hashes auf die Passwörter schließen zu können. Die schnellste Version wäre eine Tabelle direkt im Arbeitsspeicher, diese Umsetzung benötigt jedoch viel von diesem. Andere Umsetzungen wären langsamer, jedoch weniger Arbeitsspeicher-hungrig (Time-Memory-Trade-Off). Eine solche Datenstruktur sind Rainbow-Tables. 
 
 % 5.5
 \textbf{5.5. Salting (optional)}
