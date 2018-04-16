@@ -180,24 +180,42 @@ Angreifer Informationen gewinnen oder Systemzustände verändern kann)\\
 
 Angreifermodell für das Abheben von
 Bargeld an Geldautomaten mit einer EC-Karte
-
 %% PAW %%
 %% Frage: Sollen alle möglichen Szenarien in einem Modell abgedeckt werden?
 
-Angreifermodell 1
+%Vorbemerkung: \\
+%Da wir 
 
-Rolle: Außenstehender, weiterer Benutzer (aber auch andere Insider) \\
-Verbreitung: Sichtkontakt zum Automaten (PIN-Eingabe)/ ggf. über Kamera/Spiegel \\
-	oder Anbringen einer Vorrichtung zur Ermittlung der PIN 
-Verhalten: passiv, beobachtend / aktiv, beobachtend (Sicherheitsdienst)  / aktiv, verändernd (Spiegel, Vorrichtung, unerlaubte Kameranutzung)\\
-Rechenkapazitäten: unbeschränkt. \\
+\begin{itemize}
+	\item \textbf{Rolle}: Außenstehender, weiterer Benutzer (aber auch andere Insider)\\
+	\item \textbf{Verbreitung}: Sichtkontakt zum Automaten, bzw. zur PIN-Eingabe (ggf. über Kamera/Spiegel)
+	oder Anbringen einer Vorrichtung zur Ermittlung der PIN
+	
+	Das tatsächlich betroffene Schutzziel ist hier die Vertraulichkeit der PIN-Daten. Dabei wird der Übertragungsweg der manuellen PIN-Eingabe angezapft.\\
+	
+	
+	\item \textbf{Verhalten}: \begin{itemize} 
+		\item passiv, beobachtend (reines Beobachten)
+		\item aktiv, beobachtend (z.B. Sicherheitsdienst, der zur Nutzung der Kameras autorisiert ist und diese anschaltet)  
+		\item aktiv, verändernd (Spiegel, Vorrichtung, unerlaubte Kameranutzung)
+	\end{itemize}
+	\item \textbf{Rechenkapazitäten \& Finanzmittel}: beschränkt.
+	
+	Der Angreifer kann trotz Besitzes der PIN nur mit hohem Rechenaufwand und genügen Kapital einen zur PIN passenden Kartenrohling herstellen. Der Aufwand dürfte hierbei den zu erwartenden Gewinn deutlich überschreiten.
 
-Angreifermodell 2
+	
+	
+\end{itemize}
 
-Rolle: Außenstehender, weiterer Benutzer (aber auch andere Insider) \\
-Verbreitung: Besitz einer betrügerisch erworbenen gültigen EC-Karte oder Erlangen der EC-Kartendaten durch unerlaubte Handlungen \\
-Verhalten: aktiv, verändernd \\
-Rechenkapazitäten: beschränkt.   
+%Angreifermodell 2
+%
+%\begin{itemize}
+%	\item \textbf{Rolle}: Außenstehender, weiterer Benutzer (aber auch andere Insider)
+%	\item \textbf{Verbreitung}: Besitz einer betrügerisch erworbenen gültigen EC-Karte oder Erlangen der EC-Kartendaten durch unerlaubte Handlungen
+%	\item \textbf{Verhalten}: aktiv, verändernd
+%	\item \textbf{Rechenkapazitäten}: beschränkt
+%	\item \textbf{Finanzmittel}: 
+%\end{itemize}
 
 %
 % Aufg. 4
@@ -208,7 +226,7 @@ Rechenkapazitäten: beschränkt.
 % 4.1
 \textbf{4.1 Essenslieferungen (Pflicht, 7 Punkte)}
 
-a) passive Angriffe: Bereits das Schließen von erhöhten Essenslieferungen auf einen bevorstehenden Kampfeinsatz gefährdet die Vertraulichkeit dieser Information. Durchführen lässt sich der Angriff durch das Beobachten der Nahrungslieferanten oder des Verteidigungsministeriums (Traffic Analyse). Eine Gegenmaßnahme wäre eine Kantine im Verteidigungsministerium, die vergleichbares Essen liefert. 
+a) passive Angriffe: Bereits die Möglichkeit, von erhöhten Essenslieferungen auf einen bevorstehenden Kampfeinsatz zu schließen, gefährdet die Vertraulichkeit dieser Information. Durchführen lässt sich der Angriff durch das Beobachten der Nahrungslieferanten oder des Verteidigungsministeriums (Traffic Analyse). Eine Gegenmaßnahme wäre eine Kantine im Verteidigungsministerium, die vergleichbares Essen liefert. 
 
 b1) aktive Angriffe: Durch das Vergiften der Lebensmittellieferungen kann Einfluss auf die Verfügbarkeit der Soldaten genommen werden. Der Angriff kann auch Einfluss auf die Integrität der Planung haben, da unter Drogen stehende Soldaten die Planung manipulieren könnten. Alle relevanten Restaurant oder Lieferdienstfahrer müssten unter Kontrolle gebracht werden. Eine Gegenmaßnahme wäre eine Kantine im Verteidigungsministerium, die vergleichbares Essen liefert.
  
