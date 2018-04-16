@@ -10,6 +10,8 @@
 
 \usepackage{url}
 \usepackage{pdfpages}
+\usepackage{listings}
+\usepackage[]{graphicx}
 
 \begin{document}
 
@@ -210,63 +212,129 @@ Rechenkapazitäten: beschränkt.
 % 4.1
 \textbf{4.1 Essenslieferungen (Pflicht, 7 Punkte)}
 
+a) passive Angriffe: Bereits das Schließen von erhöhten Essenslieferungen auf einen bevorstehenden Kampfeinsatz gefährdet die Vertraulichkeit dieser Information. Durchführen lässt sich der Angriff durch das Beobachten der Nahrungslieferanten oder des Verteidigungsministeriums (traffic analyse). Eine Gegenmaßnahme wäre eine Kantine im Verteidigungsministerium, die vergleichbares Essen liefert. 
+
+b1) aktive Angriffe: Durch das Vergiften der Lebensmittellieferungen kann Einfluss auf die Verfügbarkeit der Soldaten genommen werden. Der Angriff kann auch Einfluss auf die Integrität der Planung haben, da unter Drogen stehende Soldaten die Planung manipulieren könnten. Alle relevanten Restaurant oder Lieferdienstfahrer müssten unter Kontrolle gebracht werden. Eine Gegenmaßnahme wäre eine Kantine im Verteidigungsministerium, die vergleichbares Essen liefert.
+ 
+b2) Wenn alle relevanten Restaurant oder Lieferdienstfahrer müssten unter Kontrolle gebracht wurden, sind auch weitere Angriffe auf die Verfügbarkeit per denail of service oder flooding möglich.
+
 % 4.2
 \textbf{4.2 Liste bekannter WLAN-AP SSIDs (optional)}
+
+a) Der Hauptangriffsvektor ist über eine Man-in-the-middle-Attacke, es ist sowohl möglich die Verkehrsdaten zu analysieren, wie auch Einfluss auf die Integrität und Verfügbarkeit der Daten zu nehmen. Ein Angriff kann durchgeführt werden, wenn man einen Sender mit der gleichen SSID und größerer Signalstärke installiert.
+Als Gegenmaßnahme zum Schutze der Vertraulichkeit und Integrität kann ein verschlüsseltes VPN verwendet werden. Die Verfügbarkeit lässt sich so nicht schützen.
+
+b) Eine denail of Service Attacke ist möglich, in dem der WLAN-AP mit vielen Verbindungsanfragen überlastet wird. Ein Schutz ist nicht möglich, außer es wird auf eine andere Technik wie UMTS gewechselt. 
 
 
 \newpage
 \aufgabe{Passwortsicherheit}
-% Aufg. 5
-%Ich (Jonas) arbeite ab morgen (12.4.) an Aufgabe 5, speziell 5.6 
-\includepdf[]{Ü1A5} 
-%Ich includepdf ok? oder soll ich es in Latex schreiben?
-%Im PDF sind meine Antworten zu 5.1 bis 5.6.
+%Aufg. 5
 
-% 5.1
-%\textbf{5.1. Eigenschaften kryptographischer Hashfunktionen (optional)}
+%5.1
+\textbf{5.1. Eigenschaften kryptographischer Hashfunktionen (optional)}
+
+Eigenschaften kryptographischer Hashfunktionen (optional) – Erläutern Sie drei Eigenschaften kryptographischer Hashfunktionen!
+
+\textbf{Antwort:}
+    \begin{enumerate}
+    \item Zeichenfolge beliebiger Länge (Eingabewert) wird auf eine Zeichenfolge mit fester Länge (Hashwert) abbildet.
+    \item Einwegfunktion
+    \item Kollisionsresistenz
+    \end{enumerate}
 
 % 5.2
-%\textbf{5.2. Einfaches Hash-Verfahren (optional)}
+\textbf{5.2. Einfaches Hash-Verfahren (optional)}
+
+Einfaches Hash-Verfahren (optional) – Durch kryptographische Hash-Funktionen können Kennwörter sicherer als im Klartext hinterlegt werden. Nennen Sie zwei Gründe, warum die Kennwörter in einem IT-System nicht im Klartext abgespeichert werden sollten. Wie funktionieren Kennwortspeicherung und -prüfung unter Verwendung einer Hash-Funktion im einfachsten Fall? Warum ist dieses Verfahren sicherer als die Abspeicherung im Klartext?
+
+\textbf{Antwort:}
+   \begin{enumerate}
+    \item Wenn jemand Zugriff auf das System hat, kann er auch das Passwort nutzen. 
+    \begin{enumerate}
+    \item Ggf. wird das gleiche Passwort auch in anderen Systemen verwendet.
+    \item Oder jemand kann sich ggü des Systems als Jemand anderes Identifizieren.
+    \end{enumerate}
+    \item Um nicht auf http://plaintextoffenders.com/ bloßgestellt zu werden.
+    \end{enumerate} 
+    
+    \begin{itemize}
+    \item Aus dem Passwort des Users wird (am besten lokal auf dem Gerät des Users) ein Hash des Passworts erzeugt, dieser wird mit dem Hash in der Passwortdatenbank verglichen.
+    \item Siehe a.i und a.ii
+    \end{itemize}
 
 % 5.3
-%\textbf{5.3. Brute-Force-Angriff (Pflicht, 6 Punkte)}
+\textbf{5.3. Brute-Force-Angriff (Pflicht, 6 Punkte)}
+Brute-Force-Angriff (Pflicht, 6 Punkte) – Bei vielen Unix-Betriebssystemen wurden früher lediglich die ersten acht Stellen eines Kennwortes verwendet. Wie lange benötigt ein Passwort-Cracking-Tool in diesem Fall maximal, das eine Million Passwörter pro Sekunde prüfen kann, wenn bekannt ist, dass das Passwort lediglich aus alphanumerischen Zeichen besteht. Wäre es im Vergleich dazu für das Passwort-Cracking-Tool aufwendiger, wenn das Betriebssystem keine Beschränkung der Kennwortlänge hat und bekannt ist, dass das Passwort nur aus Zahlen und maximal 16 Stellen besteht?
+\textbf{Antwort:}
+\begin{enumerate}
+\item alphanumerischen Zeichen, 8 Stellen:\\
+       52 Buchstaben + 10 Ziffern = 62 Zeichen\\
+       $62^{8}$ Möglichkeiten für das Passwort\\
+       $(62^{8}/1000000)/60/60/24 = 2527$ Tage\\
+\item Zahlen und maximal 16 Stellen:\\
+       10 Zeichen\\
+       $10^{16}$ Möglichkeiten\\
+       $(10^{16}/1000000)/60/60/24 = 11570$ Tage\\
+\end{enumerate}
+ 
 
 % 5.4
-%\textbf{5.4. Time-Memory-Trade-Off (optional)}
+\textbf{5.4. Time-Memory-Trade-Off (optional)}
+Time-Memory-Trade-Off (optional) – Eine leistungsfähige Technik, mit der auf Basis eines Hashwerts ein dazu passendes Passwort ermittelt werden kann, stellen sogenannte Rainbow Tables dar. Zur Beantwortung können Sie http://www.h-online.com/security/features/
+Cheap-Cracks-Of-dictionaries-and-rainbows-746217.html heranziehen.
+Was versteht man in diesem Zusammenhang unter dem Begriff Time-Memory-Trade-Off ?
+Was ist die grundsätzliche Idee von Rainbow Tables bzw. den Vorgänger-Verfahren? Was haben Rainbow Tables mit dem Regenbogen zu tun?
+\textbf{Antwort:}
+Die grundlegende Idee ist bei Passworthashes ohne Salt eine Datenstruktur möglicher Passwörter und Hashes vorher zu erstellen. Um beim Entschlüsseln von den Hashes auf die Passwörter schließen zu können. Die schnellste Version wäre eine Tabelle direkt im Arbeitsspeicher, diese Umsetzung benötigt jedoch viel von diesem. Andere Umsetzungen wären langsamer, jedoch wenige Arbeitsspeicher hungrig (Time-Memory-Trade-Off). Ein solche Datenstruktur sind Rainbow-Tables.
 
 % 5.5
-%\textbf{5.5. Salting (optional)}
+\textbf{5.5. Salting (optional)}
+Salting (optional) – Einen wirksamen Schutz gegen Rainbow Tables stellt das Hinzufügen einer zufälligen Zeichenkette (auch „Salt“ genannt) vor dem Anwenden der Hash-Funktion h auf ein Kennwort dar, was als h(SALT|PASSWORD) ausgedrückt werden kann. Warum?
+\textbf{Antwort:}
+Eine weitere Methode, die Generierung von Rainbow Tables unwirtschaftlich zu machen, ist der Einsatz von Salt. Dabei wird an das Passwort vor dem Hashen ein – im Idealfall – zufällig generierter Wert, das Salt, angehängt. Das Salt wird zusammen mit dem Hashwert gespeichert, um das Passwort später überprüfen zu können, es ist also kein Geheimnis. Der Salt vergrößert entsprechend die Menge der möglichen Passwörter.
 
 % 5.6
+\textbf{5.6. Dictionary-Attack (Pflicht, 10 Punkte)}
+Dictionary-Attack (Pflicht, 10 Punkte) – Schreiben Sie ein Programm (z. B. in Java, Ruby, Python oder Perl) zum Ermitteln eines Kennworts anhand eines Hashwerts mit einem Wörterbuch-Angriff. Besorgen Sie sich dazu ein deutsches Wörterbuch aus dem Internet. Testen Sie Ihre Implementierung mit den unten angegebenen Daten. Über das gespeicherte Kennwort sind die folgenden Fakten bekannt: Es ist ein deutsches Wort, steht im Wörterbuch, ist kleingeschrieben und nicht länger als 6 Zeichen. Der Salt wird beim Hashen vor das Passwort gestellt. Bei der Hash-Funktion handelt es sich um MD5. 
+\begin{lstlisting}
+# user;salt:hash
+berta;xohth4dew5p8:14146888a9cb5e924987691876fb4252
+\end{lstlisting}
+Welches Kennwort konnten Sie ermitteln? Skizzieren Sie die Funktionsweise Ihres Programms anhand der wichtigsten Stellen Ihres Programms (bitte nicht separat abgeben, sondern ins PDF einfügen). Achten Sie dabei auf Verständlichkeit und Übersichtlichkeit.
+Wie müsste das Programm erweitert werden, wenn der Salt im Vorfeld nicht bekannt wäre?
+\textbf{Antwort:}
+Gefundenes Passwort: sterne
+\begin{lstlisting}
+#!/bin/bash
+## user;salt:hash
+#berta;xohth4dew5p8:14146888a9cb5e924987691876fb4252
+#PW="1234"
+salt="xohth4dew5p8"
+#hash=$(printf '%s' $PW$salt | md5sum | cut -d ' ' -f 1)
+hash=14146888a9cb5e924987691876fb4252
+#numofcpu=4
+numofcpu=$(cat /proc/cpuinfo | grep processor | wc -l) 
+# Anzahl der CPU-Kerne = Anzahl der Threads.
 
-%\textbf{5.6. Dictionary-Attack (Pflicht, 10 Punkte)}
-%\begin{verbatim}
-%#!/bin/bash
-%## user;salt:hash
-%#berta;xohth4dew5p8:14146888a9cb5e924987691876fb4252
-%#PW="1234"
-%salt="xohth4dew5p8"
-%#hash=$(printf '%s' $PW$salt | md5sum | cut -d ' ' -f 1)
-%hash=14146888a9cb5e924987691876fb4252
-%#numofcpu=4
-%numofcpu=$(cat /proc/cpuinfo | grep processor | wc -l)
-%
-%for ((z=1;z<=$numofcpu;z++)); do
-% for word in $(split --number=l/$z/$numofcpu ./deutsch.txt); do 
-%  length=$(echo $word | wc -m)
-%    if [ $length -lt 8 ] ; then
-%      word=$(echo $word | sed 's/\([A-Z]\)/\L\1/g')
-%      #echo $PW$word | md5sum
-%      #echo $word
-%      var=$(printf '%s' $salt$word | md5sum | cut -d ' ' -f 1)
-%      #echo $var
-%      if [ $var = $hash ] ; then
-%        echo -e "Passwort gefunden: $word"
-%      fi
-%    fi
-%  done & echo $z
-%done
-%Passwort: sterne
-%\end{verbatim}
+for ((z=1;z<=$numofcpu;z++)); do
+ for word in $(split --number=l/$z/$numofcpu ./deutsch.txt); do 
+  length=$(echo $word | wc -m) #Berechnen der Wortlaenge
+    if [ $length -lt 8 ] ; then #wenn Wort + EOL < 8 ...
+      word=$(echo $word | sed 's/\([A-Z]\)/\L\1/g') 
+      #Wort aus Woerterbuch alle Zeichen klein
+      var=$(printf '%s' $salt$word | md5sum | cut -d ' ' -f 1)
+      if [ $var = $hash ] ; then
+        echo -e "Passwort gefunden: $word"
+      fi
+    fi
+  done & echo -e "Thread $z of $numofcpu started"
+done
+\end{lstlisting}
+\includegraphics[scale=1]{Passwortgefunden.png} 
+Wenn der Salt nicht bekannt wäre müsste nach einem Passwort in der maximalen Länge von Passwortlänge + Saltlänge gesucht werden.
+
+
+
 
 \end{document}
