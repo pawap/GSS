@@ -1,0 +1,93 @@
+\documentclass[ngerman,parskip=half]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{blockgraph}
+
+\title{Verwendung von \texttt{blockgraph}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Dieses Dokument zeigt die Verwendung des Pakets \texttt{blockgraph} am Beispiel von Prozessor-Schedules. Im Quellcode befinden sich Kommentare, die die Makros im Detail beschreiben.
+%Dieses Dokument wurde mit \texttt{TikZ/pgf} v\pgfversion{} erstellt.
+
+\section*{Beispiel 1: Einprozessorsystem (ohne Prozesswechselzeit)}
+
+% blockgraph-Umgebung. Erzeugt den Blockgraphen. Parameter:
+%   Breite (X-Achse)
+%   Höhe (Y-Achse)
+%   Skalierung (Vergrößerungsfaktor)
+\begin{blockgraph}{15}{1}{0.4}
+	% \bglabelxx erzeut Beschriftung der X-Achse an bestimmter Position
+	\bglabelxx{0}
+	\bglabelxx{5}
+	\bglabelxx{10}
+	\bglabelxx{15}
+
+	% \bgblock erzeugt Block innerhalb des Graphen. Parameter:
+	%    Y-Position (z.B. CPU), optional
+	%    Beginn auf der X-Achse
+	%    Ende auf der X-Achse
+	%    Beschriftung
+	\bgblock{0}{4}{$P_1$}
+	\bgblock{4}{7}{$P_2$}
+	\bgblock{7}{12}{$P_3$}
+
+\end{blockgraph}
+
+
+
+\section*{Beispiel 2: Multiprozessorsystem (mit Prozesswechselzeit)}
+
+% blockgraph-Umgebung. Erzeugt den Blockgraphen. Parameter:
+%   Breite (X-Achse)
+%   Höhe (Y-Achse)
+%   Skalierung (Vergrößerungsfaktor)
+\begin{blockgraph}{20}{4}{0.4}
+	% \bglabelxx erzeut eine Beschriftung der X-Achse an bestimmter Position, wobei Position und Beschriftung identisch sind
+	\bglabelxx{0}
+	\bglabelxx{5}
+	\bglabelxx{10}
+	\bglabelxx{15}
+	\bglabelxx{20}
+
+	% \bglabely erzeut eine Beschriftung der X-Achse an bestimmter Position
+	\bglabely{0}{CPU 0}
+	\bglabely{1}{CPU 1}
+	\bglabely{2}{CPU 2}
+	\bglabely{3}{CPU 3}
+
+	% \bgblock erzeugt einen Block innerhalb des Graphen. Parameter:
+	%    Y-Position (z.B. CPU), optional
+	%    Beginn auf der X-Achse
+	%    Ende auf der X-Achse
+	%    Beschriftung
+	\bgblock[0]{1}{4}{$P_1$}
+	\bgblock[0]{5}{7}{$P_4$}
+	\bgblock[0]{8}{12}{$P_7$}
+
+	% \bgemptysingleblock erzeugt leeren Block (z.B. Prozesswechsel). Parameter:
+	%    Y-Position (z.B. CPU), optional
+	%    Position auf der X-Achse
+	\bgemptysingleblock[0]{0}
+	\bgemptysingleblock[0]{4}
+	\bgemptysingleblock[0]{7}
+
+	\bgemptysingleblock[1]{0}
+	\bgblock[1]{1}{8}{$P_2$}
+	\bgemptysingleblock[1]{8}
+	\bgblock[1]{9}{18}{$P_8$}
+
+	\bgemptysingleblock[2]{1}
+	\bgblock[2]{2}{6}{$P_3$}
+	\bgemptysingleblock[2]{6}
+	\bgblock[2]{7}{15}{$P_6$}
+
+	\bgemptysingleblock[3]{4}
+	\bgblock[3]{5}{15}{$P_5$}
+\end{blockgraph}
+
+\end{document}
